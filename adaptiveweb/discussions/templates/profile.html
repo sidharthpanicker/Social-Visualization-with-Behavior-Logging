@@ -1,0 +1,36 @@
+{% extends 'home.html' %}
+{% block data %}
+<h4>Welcome, <strong>{{ user.username }} <br>(Scroll Down for User Log)</strong></h2><br>
+<p>
+<h1>Why do you decide to log these actions?</h1>
+1)  <strong>Mouse Clicks:</strong>  One of the most common way of tracking user behaviors is mouse clicks, it helps us exactly<br> to find out what exactly the user is doing in the website, which section of the website he likes to visit, <br>what kind of operation he usually does when he spends time on the website, which can help us to cater user <br> specific content for him. For example: In stack overflow some user like to just read post, check analytics, <br>check other user’s profile which cannot be tracked by any other actions, because except the user logging and <br>logging out no data has changed in the stack overflow, so accordingly we  can recommend him posts of the <br>specific user which he likes to read or posts/questions on the topics he likes to read.<br><br>
+
+2)  <strong>Mouse Movements:</strong> Tracking user behavior using eye movements are advanced and need user hardware to support <br>and high processing hardware is required at the backend for using image processing and other techniques to <br>analyze the data and come out with useful information about it. Lack of clicks doesn’t guarantee that <br>something wasn’t seen. But a less accurate and cheap way of tracking what user is doing when he is not <br>clicking on content, is using mouse movements, normally user tend to move the mouse to the location where <br>he/she is reading or looking at which can help us again cater content for him. And we can make the user interface <br>more user friendly as we also get to know which part of the section he is finding difficulty to reach and can <br>come up with a better design.<br><br>
+
+3)  <strong>Mouse Scrolls:</strong> Digital world also follows the rule which applies on the books, “above the fold”, which <br>means user tends to look just above the fold, which translates into the digital world as the user likes to <br>view the content on the first part of the site, rather than scrolling down. By analyzing the scroll depth, we <br>can analyze how long the questions should be, or at least we can reduce the description of the questions up to <br>an extent that user check out all questions, rather than scrolling each question and its description which can <br>be irritating. With this information we can also analyze whether the user is going through the whole content <br>and are we able to convey the information required.<br><br>
+
+4)  <strong>User Login/Logout Logs:</strong> Tracking this helps us analyze how often the user logs in, how active he is in <br>the website, we can also analyze some hidden behavior like the IP address from which he logs into the website, <br>which will help us to triangulate a region/location of the user and we can cater region specific content to <br>the user as well.<br><br>
+
+5) <strong> Post Question/Read Comments/Post Comments/View Analytics/Open Discussion:</strong> We track all these behaviors in <br>the website, which will help us to understand what kind of interests does the user have, whether he likes to <br>read a lot, or he is contributor which helps us understand his technically skills and by recording on what kind<br> of questions he ask, what kind of comments he add to which kind of users, we can recommend connections, topics<br> to follow which he would be interested in.<br>
+
+</p>
+<h2>User Login Log</h2>
+<table class="table table-striped table-hover" >
+  <tr>
+    <th>Author </th>
+    <th>Action</th>
+    <th>Created Date</th>
+  </tr>
+  {% for item in loginInfo %}
+  <tr> 
+    <td class="column2">{{ item.author }}</td>
+    <td class="column1">{{ item.operation_type }}</td>
+    <td class="column3">{{ item.created_date }}</td>
+  </tr>
+  {% endfor %}
+
+</table>
+
+
+
+{% endblock %}

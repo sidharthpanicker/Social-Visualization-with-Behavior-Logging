@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+{% block data %}
+
+<!-- !PAGE CONTENT! -->
+
+<table class="table table-striped table-hover" >
+  <tr>
+    <th>Title</th>
+    <th>Author </th>
+    <th>Created Date</th>
+    <th>Action</th>
+  </tr>
+  {% for item in posts %}
+  <tr> 
+    <td class="column1">{{ item.title }}</td>
+    <td class="column2">{{ item.author }}</td>
+    <td class="column3">{{ item.created_date }}</td>
+    <td class="column4">
+      <div id = postcomment_{{ item.pk }} style="display: none;">
+        {% for comment in item.comments.all %}
+        <div class="comment">
+          <p>{{ comment.text|linebreaks }}</p>
+          <div class="date">{{ comment.created_date }}</div>
+          <strong>{{ comment.author }}</strong>
+        </div>
+        {% empty %}
+        <p>No comments yet!</p>
+        {% endfor %}
+      </div>
+      <i class="fa fa-angle-double-down fa-fw" onclick="hideUnhide('postcomment_{{ item.pk }}');onClickFunction('READ_COMMENT','{{ item.pk }}')"></i>
+      <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=item.pk %}"><i class="fa fa-plus fa-fw" onclick="onClickFunction('ADD_COMMENT','{{ item.pk }}')"></i></a>
+      <a class="btn btn-default" href="{% url 'post_edit' pk=item.pk %}"><i class="fa fa-edit fa-fw" onclick="onClickFunction('EDIT_POST','{{ item.pk }}')"></i></a>
+    </td>
+  </tr>
+  {% endfor %}
+
+</table>
+{% endblock %}
+
+

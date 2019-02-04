@@ -1,0 +1,1 @@
+{"action": "LOG_IN", "ip": "127.0.0.1", "user": "ddd", "timestamp": 1537474586}{"action": "LOG_OUT", "ip": "127.0.0.1", "user": "ddd", "timestamp": 1537475661}{"action": "LOG_IN", "ip": "127.0.0.1", "user": "ddd", "timestamp": 1537475751}{"action": "LOG_OUT", "ip": "127.0.0.1", "user": "ddd", "timestamp": 1537475770}
